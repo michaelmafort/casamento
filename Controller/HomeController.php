@@ -20,4 +20,8 @@ class HomeController extends AppController {
     public function fotos() {
         $this->set('title_for_layout', 'Flavia & Michael - Fotos');
     }
+    
+    public function presentear() {
+        $this->set('title_for_layout', 'Flavia & Michael - Presentes');
+    }
 }
