@@ -1,5 +1,7 @@
 <?php
 class HomeController extends AppController {
+    public $layout = 'casamento';
+    public $uses = array('Presente');
     
     public function index() {
         
@@ -22,6 +24,7 @@ class HomeController extends AppController {
     }
     
     public function presentear() {
+        $this->set('presentes', $this->Presente->find('all', array('order' => array('Presente.price' => 'asc'))));
         $this->set('title_for_layout', 'Flavia & Michael - Presentes');
     }
 }
