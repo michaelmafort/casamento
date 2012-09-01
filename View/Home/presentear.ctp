@@ -20,7 +20,6 @@
     #presentes a{
         color:#333;
         text-decoration:none;
-        
     }
     .presente{
         width: 120px;
@@ -33,6 +32,7 @@
         border-radius:3px;
         background:#FFF;
         padding:2px;
+        margin-bottom: 20px;
     }
     
     .presente img{
