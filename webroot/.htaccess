@@ -1,3 +1,4 @@
+SetEnv CAKE_CORE_INCLUDE_PATH "/home/michaelmafortcom/cakephp-2.2.1/lib"
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-d

@@ -80,6 +80,7 @@ if (!defined('CAKE_CORE_INCLUDE_PATH')) {
 		$failed = true;
 	}
 } else {
+    define("CAKE_CORE_INCLUDE_PATH", "/home/michaelmafortcom/cakephp-2.2.1/lib");
 	if (!include CAKE_CORE_INCLUDE_PATH . DS . 'Cake' . DS . 'bootstrap.php') {
 		$failed = true;
 	}
