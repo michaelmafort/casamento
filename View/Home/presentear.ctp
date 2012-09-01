@@ -1,9 +1,9 @@
 <div id="presentes">
     <?php foreach($presentes as $presente) :?>
     <div class="presente">
-        <?php echo $this->Html->image($presente['Presente']['image_url'], array('width' => 120));?><br>
+        <a href="<?php echo $presente['Presente']['url'];?>" target="_blank"><?php echo $this->Html->image($presente['Presente']['image_url'], array('width' => 120));?><br>
         <span class="title"><?php echo $presente['Presente']['title'];?></span><br>
-        <span class="price"><?php echo "R$", $presente['Presente']['price'];?></span>
+        <span class="price"><?php echo "R$", $presente['Presente']['price'];?></span></a>
     </div>
     <?php endforeach;?>
 </div>
@@ -16,6 +16,11 @@
         display:table;
         background: #ddd;
         width:920px;
+    }
+    #presentes a{
+        color:#333;
+        text-decoration:none;
+        
     }
     .presente{
         width: 120px;
