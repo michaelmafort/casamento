@@ -26,8 +26,13 @@
         margin-right: 20px;
         border:1px solid #ccc;
         border-radius:3px;
+        background:#FFF;
+        padding:2px;
     }
     
+    .presente img{
+        margin-bottom:5px;
+    }
     .presente span.title{
         font-weight: bold;
     }
