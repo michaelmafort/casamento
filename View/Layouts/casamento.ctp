@@ -175,6 +175,10 @@
             float:right;
             background:url(img/setas-fotos.png) no-repeat -168px 0px;
         }
+        
+        img{
+            border:0px;
+        }
     </style>
 </head>
 <body>
