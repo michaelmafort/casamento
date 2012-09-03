@@ -16,7 +16,7 @@
         {id: 4, label: "Me seguraaaaaaa!"},
         {id: 5, label: "Porque quando estou com você tudo fica mais feliz!"},
         {id: 6, label: "Com um beijo seu eu fico o homem mais forte do mundo."},
-        {id: 7, label: "Não emporta quanta luz tenha no ambiente, você sempre me ilumina."},
+        {id: 7, label: "Não importa quanta luz tenha no ambiente, você sempre me ilumina."},
         {id: 8, label: "Todas as aventuras que vivemos e viveremos juntos."},
         {id: 9, label: "Olhar no teu olhar, me perco no brilho do teu olhar."},
         {id: 10, label: "Alimentando peixinhos na lagoa da vale verde."},
@@ -35,15 +35,10 @@
     
     var current = 0;
     $("#photos").css({'background': 'url('+webroot+'/'+(photos.length-1)+'.jpg)', backgroundPosition: '0 0'});
-    var timeint;
     var passagem = function(){
         $("#photos").css({'background': 'url('+webroot+'/'+photos[current].id+'.jpg)', backgroundPosition: '0 0'});
         $("#photo-legend").text(photos[current].label);
     }
-        
-    $(document).ready(function(){
-        timeint = window.setInterval(passagem, 10000);
-    });
     
     $("#button-next, #button-back").click(function(){
         if($(this).attr('id') == 'button-next') {
@@ -51,7 +46,6 @@
         }else{
             current = (current <= 0) ? (photos.length -1) : current-1;
         }
-        window.clearInterval(timeint);
         passagem();
     });
 </script>

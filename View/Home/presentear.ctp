@@ -25,13 +25,15 @@
 <style>
     .garantido{
         width:120px;
-        color:#c00;
-        background: #fff;
+        color:#900;
         opacity:.7;
         position:absolute;
-        height:220px;
+        height:80px;
         text-align: center;
-        font-size:24px;
+        font-size:14px;
+        padding-top:140px;
+        font-weight: bold;
+        background: url(/flavia_michael/img/bg-presente.png) no-repeat #FFF;
         
     }
     
