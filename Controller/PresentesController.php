@@ -97,15 +97,25 @@ class PresentesController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
         
-    public function gift($id) {
+    public function list_presentes(){
+        $this->layout = null;
+        $this->set('presentes', $this->Presente->find('all', array('order' => array('Presente.price' => 'asc'))));
+    }
+        
+    public function gift() {
         header('Content-Type: application/json; charset=utf-8');
         $this->layout = null;
         $response = new stdClass();
         $response->success = false;
         $response->message = "Erro ao salvar, tente novamente.";
-        if( $this->Presente->save(array('Presente' => array('id' => $id, 'name' => $this->request->data['name'], 'email'=> $this->request->data['email'], 'ip' => $_SERVER['REMOTE_ADDR'], 'comment' => $this->request->data['comment']))) ){
-            $response->success = true;
-            $response->message = 'Obrigado.\n\nFlávia e Michael.';
+        
+        if($this->request->is('post')) {
+            $this->Presente->create();
+            $this->request->data['Presente']['checked'] = 1;
+            if( $this->Presente->save($this->request->data) ){
+                $response->success = true;
+                $response->message = !empty($this->request->data['Presente']['name']) ? $this->request->data['Presente']['name'] . ', agradecemos o seu presente.' : '';
+            }
         }
         echo json_encode($response);
         exit;

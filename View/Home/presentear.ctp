@@ -12,19 +12,33 @@
     ?>
 </div>
 <div id="presentes">
-    <?php foreach($presentes as $presente) :?>
-    <div class="presente">
-        <a href="<?php echo $presente['Presente']['url'];?>" target="_blank"><?php echo $this->Html->image($presente['Presente']['image_url'], array('width' => 120));?><br>
-        <span class="title"><?php echo $presente['Presente']['title'];?></span><br>
-        <span class="price"><?php echo "R$", $presente['Presente']['price'];?></span></a>
-        <?php echo $this->Form->input('bought', array('type' => 'checkbox', 'class' => 'bought', 'label' => 'Vou presentear', 'value' => $presente['Presente']['id']));?>
-    </div>
-    <?php endforeach;?>
+    
 </div>
 <div id="photo-legend">
-    Ao <strong>decidir qual presente</strong>, clique em <strong>vou presentear</strong>. <p>Abrirá uma janelinha para caso queira, vc poder informar seu nome, email e deixar um comentário.</p><p>Iremos responder a <strong>todos individualmente</strong> por cada presente.</p>
+    Todos os links dos produtos é apenas uma referencia, não sendo necessáriamente obrigatório comprar na loja que o produto foi linkado, este link serve apenas para facilitar a visualização dos detalhes do produto.<br><br>
+    Endereço para entrega:
+    <p>Rua João de Castro, 74 - Progresso<br>
+    Brumadinho - Minas Gerais<br>
+    CEP: 30460-000</p>
+    Ao <strong>decidir qual presente</strong>, clique em <strong>vou presentear</strong>. <p>Abrirá uma janelinha para caso queira, vc poder informar seu nome, email e deixar um comentário.<br>É importante confirmar, para que não sejam comprados presentes iguais/repetidos.</p><p>Iremos responder a <strong>todos individualmente</strong> por cada presente.</p>
 </div>
 <style>
+    .garantido{
+        width:120px;
+        color:#c00;
+        background: #fff;
+        opacity:.7;
+        position:absolute;
+        height:220px;
+        text-align: center;
+        font-size:24px;
+        
+    }
+    
+    #photo-legend{
+        opacity: 1;
+        font-weight: normal;
+    }
     span.subtitle{
         font-size:14px;
         color:#333;
@@ -36,7 +50,7 @@
         border-radius:4px;
         background: #FFF;
         width: 400px;
-        height:250px; 
+        height:270px; 
         padding:10px 20px 10px 20px;
         position: absolute;
         top:0px;
@@ -115,8 +129,10 @@
 </style>
 <script>
     $(document).ready(function(){
-        $(".bought").click(function(){
+        $("#presentes").load("<?php echo $this->Html->url(array('controller' => 'presentes', 'action' => 'list_presentes'));?>");
+        $(".bought").live('click', function(){
             var id = $(this).val();
+            $("#PresenteId").val(id);
             var y = (window.screen.availHeight) + $(document).scrollTop();
             var x = (window.screen.availWidth);
             var label = $(this).parent().prev().find(".title").text();
@@ -133,19 +149,23 @@
         
         $("#gift-form form").submit(function(){
             data = $(this).serialize();
-            var id = $("#gift-form")
             $.ajax({
                 data: data,
-                url: "<?php echo $this->Html->url(array('controller' => 'presentes', 'action' => 'gift'));?>" + "/" + id,
+                url: "<?php echo $this->Html->url(array('controller' => 'presentes', 'action' => 'gift'));?>",
                 dataType: 'json',
                 type: 'post',
                 success: function(json) {
                     if(json.success) {
                         $("#gift-form").hide();
+                        $("#presentes").load("<?php echo $this->Html->url(array('controller' => 'presentes', 'action' => 'list_presentes'));?>");
                     }
                     alert(json.message);
                 }
             });
+            
+            return false;
         });
+        
+        $(".garantido").parent().find("input").attr('checked', 'checked');
     });
 </script>
