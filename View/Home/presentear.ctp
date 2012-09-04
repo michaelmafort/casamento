@@ -15,7 +15,7 @@
     
 </div>
 <div id="photo-legend">
-    Todos os links dos produtos é apenas uma referencia, não sendo necessáriamente obrigatório comprar na loja que o produto foi linkado, este link serve apenas para facilitar a visualização dos detalhes do produto.<br><br>
+    Todos os links dos produtos são apenas uma referência. Eles servem apenas para facilitar a visualização dos detalhes dos produtos.<br><br>
     Endereço para entrega:
     <p>Rua João de Castro, 74 - Progresso<br>
     Brumadinho - Minas Gerais<br>
