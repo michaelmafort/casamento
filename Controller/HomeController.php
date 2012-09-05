@@ -25,7 +25,6 @@ class HomeController extends AppController {
     
     public function presentear() {
         $this->set('presentes', $this->Presente->find('all', array('order' => array('Presente.price' => 'asc'))));
-        $this->view = 'presentear_comingsoon';
         $this->set('title_for_layout', 'Flavia & Michael - Presentes');
     }
 }
