@@ -179,6 +179,67 @@
         img{
             border:0px;
         }
+        
+        
+        
+        #feedback{
+			position: fixed;
+			top:100px;
+			left:-362px;
+                        background:#FFF;
+		}
+		#feedback form{
+			float: left;
+			border: 1px solid #999;
+			padding: 10px;
+			border-radius:5px;
+		}
+		#feedback form label{
+			display: block;
+			float: left;
+			text-align:right;
+			margin-right:20px;
+			width:70px;
+			font-weight:bold;
+			color: 019AC6;
+			font-size:14px;
+		}
+		#feedback a, #feedback a:hover{
+			background:url(img/contact.jpg)  no-repeat center left transparent;
+			display: block;
+			width:40px;
+			height:175px;
+			float: left;
+			text-indent:-9999em;
+			position: absolute;
+			top:120px;
+			right:-40px;
+		}
+		#feedback form .btn{
+			float: right;
+			background:url("img/enviar.jpg")  no-repeat 0px 0px transparent;
+			text-indent:-9999em;
+			width:80px;
+			height:28px;
+			border:none;
+
+		}
+		#feedback form textarea{
+			width:250px;
+			height:140px;
+			border: 1px solid #019AC6;
+		}
+		#feedback form input[type="text"]{
+			width:250px;
+			height:30px;
+			border: 1px solid #019AC6;
+		}
+		#feedback h2{
+			text-align:center;
+			color: #019AC6;
+			/*text-shadow:0.2px 0.3px 0.3px #000;*/
+			font-size:22px;
+		}
     </style>
 </head>
 <body>
@@ -215,6 +276,18 @@
                     Flávia & Michael - Todos os direitos reservados - 2012.
 		</div>
 	</div>
+        <div id="feedback">
+
+            <form action="<?php echo $this->Html->url(array('controller' => 'contacts', 'action' => 'send'));?>" method="post">
+			<h2>Mande sua mensagem!</h2>
+			<p><label>Nome: </label><input name="data[Contact][name]" type="text" /></p>
+			<p><label>Email: </label><input name="data[Contact][email]" type="text" /></p>
+			<p><label>Assunto: </label><input name="data[Contact][subject]" type="text" /></p>
+			<p><label>Mensagem: </label><textarea name="data[Contact][message]"></textarea></p>
+			<p><input type="submit" value="Send&raquo;" class="btn"/></p>
+		</form>
+		<a href="#" class="pull_feedback" title="Envie sua mensagem">Contato</a>
+	</div>
     <script>
         $(document).ready(function(){
             var loc = location.href;
@@ -224,7 +297,34 @@
                     $(this).addClass('selected');
                 }
             });
+            
+            jQuery(".pull_feedback").toggle(function(){
+                    jQuery("#feedback").animate({left:"0px"});
+                    return false;
+                },
+                function(){
+                    jQuery("#feedback").animate({left:"-362px"});	
+                    return false;
+                }
+            );
+                
+            $("#feedback form").submit(function(){
+                $.ajax({
+                    url: $(this).attr('action'),
+                    dataType: 'json',
+                    data: $(this).serialize(),
+                    type: 'post',
+                    success: function(json) {
+                        if(json.success) {
+                            document.forms[0].reset();
+                        }
+                        alert(json.message);
+                    }
+                })
+                return false;
+            });
         });
     </script>
+    
 </body>
 </html>
