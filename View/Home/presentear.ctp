@@ -33,7 +33,7 @@
         font-size:14px;
         padding-top:140px;
         font-weight: bold;
-        background: url(/flavia_michael/img/bg-presente.png) no-repeat #FFF;
+        background: url(<?php echo $this->Html->url('/img/bg-presente.png');?>) no-repeat #FFF;
         
     }
     
