@@ -140,8 +140,8 @@
             var label = $(this).parent().prev().find(".title").text();
             $("#gift-form span.subtitle").text(label);
             $("#gift-form").show().animate({
-                left: (x - 200) + "px",
-                top: ((y / 2) - 150) + "px"
+                left: ((x / 2 )- 200) + "px",
+                top: (y - 150) + "px"
             }, 300);
         });
         
