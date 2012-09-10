@@ -135,12 +135,12 @@
         $(".bought").live('click', function(){
             var id = $(this).val();
             $("#PresenteId").val(id);
-            var y = (window.screen.availHeight) + $(document).scrollTop();
+            var y = (window.screen.availHeight / 2) + $(document).scrollTop();
             var x = (window.screen.availWidth);
             var label = $(this).parent().prev().find(".title").text();
             $("#gift-form span.subtitle").text(label);
             $("#gift-form").show().animate({
-                left: ((x / 2) - 200) + "px",
+                left: (x - 200) + "px",
                 top: ((y / 2) - 150) + "px"
             }, 300);
         });
