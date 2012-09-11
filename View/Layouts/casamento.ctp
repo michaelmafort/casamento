@@ -3,8 +3,10 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php echo $title_for_layout; ?>
+		Casamento Flávia e Michael
 	</title>
+    <meta name="keywords" content="Casamento, Flávia, Michael, Flávia e Michael, Flávia & Michael"/>
+    <meta name="description" content="Site do casamento da Flávia Romualdo e Michael Mafort"/>
 	<?php
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
