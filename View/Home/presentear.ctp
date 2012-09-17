@@ -17,9 +17,7 @@
 <div id="photo-legend">
     Todos os links dos produtos são apenas uma referência. Eles servem apenas para facilitar a visualização dos detalhes dos produtos.<br><br>
     Endereço para entrega:
-    <p>Rua João de Castro, 74 - Progresso<br>
-    Brumadinho - Minas Gerais<br>
-    CEP: 30460-000</p>
+    <p>Solicite aos noivos, clicando no menu Contato ao lado esquerdo do site, ou enviando email diretamente para <a href="mailto:flaviaemichael@gmail.com">flaviaemichael@gmail.com</a></p>
     Ao <strong>decidir qual presente</strong>, clique em <strong>vou presentear</strong>. <p>Abrirá uma janelinha para caso queira, vc poder informar seu nome, email e deixar um comentário.<br>É importante confirmar, para que não sejam comprados presentes iguais/repetidos.</p><p>Iremos responder a <strong>todos individualmente</strong> por cada presente.</p>
 </div>
 <style>
