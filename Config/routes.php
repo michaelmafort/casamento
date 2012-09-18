@@ -32,6 +32,7 @@
 	Router::connect('/padrinhos', array('controller' => 'home', 'action' => 'padrinhos'));
 	Router::connect('/fotos', array('controller' => 'home', 'action' => 'fotos'));
 	Router::connect('/presentear', array('controller' => 'home', 'action' => 'presentear'));
+	Router::connect('/convite', array('controller' => 'home', 'action' => 'convite'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
