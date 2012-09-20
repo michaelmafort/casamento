@@ -123,9 +123,11 @@ class PresentesController extends AppController {
                 
                 $email = new CakeEmail;
                 $email->template('agradecimento', 'default')
+                    ->sender('flaviaemichael@michaelmafort.com.br', 'Casamento Flávia e Michael')
                     ->emailFormat('html')
                     ->to($this->request->data['Presente']['email'])
-                    ->from(array('flaviaemichael@gmail.com' => 'Casamento Flávia e Michael'))
+                    ->from(array('flaviaemichael@michaelmafort.com.br' => 'Casamento Flávia e Michael'))
+                    ->replyTo('flaviaemichael@gmail.com')
                     ->subject('Agradecemos o seu presente')
                     ->send();
             }
