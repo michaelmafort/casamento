@@ -74,13 +74,13 @@ if (!defined('WWW_ROOT')) {
 
 if (!defined('CAKE_CORE_INCLUDE_PATH')) {
 	if (function_exists('ini_set')) {
-		ini_set('include_path', ROOT . DS . 'lib' . PATH_SEPARATOR . ini_get('include_path'));
+		ini_set('include_path', "/usr/share/php/cakephp/lib" . PATH_SEPARATOR . ini_get('include_path'));
 	}
 	if (!include 'Cake' . DS . 'bootstrap.php') {
 		$failed = true;
 	}
 } else {
-    define("CAKE_CORE_INCLUDE_PATH", "/home/michaelmafortcom/cakephp-2.2.1/lib");
+    define("CAKE_CORE_INCLUDE_PATH", "/usr/share/php/cakephp/lib");
 	if (!include CAKE_CORE_INCLUDE_PATH . DS . 'Cake' . DS . 'bootstrap.php') {
 		$failed = true;
 	}

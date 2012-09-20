@@ -1,3 +1,7 @@
+<?php
+echo $this->Html->css('jquery-ui-1.8.23.custom');
+echo $this->Html->script('jquery-ui-1.8.23.custom.min.js');
+?>
 <div id="gift-form">
     <span class="subtitle">Presentear</span>
     <?php
@@ -20,7 +24,29 @@
     <p>Solicite aos noivos, clicando no menu Contato ao lado esquerdo do site, ou enviando email diretamente para <a href="mailto:flaviaemichael@gmail.com">flaviaemichael@gmail.com</a></p>
     Ao <strong>decidir qual presente</strong>, clique em <strong>vou presentear</strong>. <p>Abrirá uma janelinha para caso queira, vc poder informar seu nome, email e deixar um comentário.<br>É importante confirmar, para que não sejam comprados presentes iguais/repetidos.</p><p>Iremos responder a <strong>todos individualmente</strong> por cada presente.</p>
 </div>
+<div id="dialog-alert" title="Obrigado pelo presente">
+    <p><span id="name"></span> obrigado por nos presentear com <span id="presente"></span>.</p>
+    <p>O produto pode ser comprado em qualquer loja de sua preferencia, mas para facilitar disponibilizamos um link que o levará diretamente ao produto.</p>
+    <p>Para comprar <a id="link" target="_blank" href="#">clique aqui.</a></p>
+</div>
 <style>
+    #dialog-alert{
+        font-size:13px;
+        font-family:'Trebuchet MS';
+        width:300px;
+    }
+    span#name{
+        font-weight:bold;
+    }
+    
+    span#presente{
+        font-weight: bold;
+    }
+    
+    #dialog-alert{
+        display:none;
+    }
+    
     .garantido{
         width:120px;
         color:#900;
@@ -158,8 +184,26 @@
                     if(json.success) {
                         $("#gift-form").hide();
                         $("#presentes").load("<?php echo $this->Html->url(array('controller' => 'presentes', 'action' => 'list_presentes'));?>");
+                        
+                        $( "#dialog:ui-dialog" ).dialog( "destroy" );
+	
+                        $("#dialog-alert #name").text(json.name);
+                        $("#dialog-alert #presente").text(json.presente);
+                        $("#dialog-alert #link").attr('href', json.link);
+    
+                        $("#dialog-alert").dialog({
+                            modal: true,
+                            buttons: {
+                                Ok: function() {
+                                    $( this ).dialog( "close" );
+                                }
+                            }
+                        });
+                        
+                        $("#dialog-alert").dialog("open");
+                    }else{
+                        alert(json.message);
                     }
-                    alert(json.message);
                 }
             });
             
@@ -167,5 +211,6 @@
         });
         
         $(".garantido").parent().find("input").attr('checked', 'checked');
+        
     });
 </script>

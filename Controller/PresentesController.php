@@ -103,6 +103,7 @@ class PresentesController extends AppController {
     }
         
     public function gift() {
+        App::uses('CakeEmail', 'Network/Email');
         header('Content-Type: application/json; charset=utf-8');
         $this->layout = null;
         $response = new stdClass();
@@ -113,13 +114,23 @@ class PresentesController extends AppController {
             $this->Presente->create();
             $this->request->data['Presente']['checked'] = 1;
             if( $this->Presente->save($this->request->data) ){
+                $presente = $this->Presente->read();
                 $response->success = true;
                 $response->message = !empty($this->request->data['Presente']['name']) ? $this->request->data['Presente']['name'] . ', agradecemos o seu presente.' : '';
+                $response->name = !empty($this->request->data['Presente']['name']) ? $this->request->data['Presente']['name'] : 'Caro amigo(a)';
+                $response->presente = $presente['Presente']['title'];
+                $response->link = $presente['Presente']['url'];
+                
+                $email = new CakeEmail;
+                $email->template('agradecimento', 'default')
+                    ->emailFormat('html')
+                    ->to($this->request->data['Presente']['email'])
+                    ->from(array('flaviaemichael@gmail.com' => 'Casamento Flávia e Michael'))
+                    ->subject('Agradecemos o seu presente')
+                    ->send();
             }
         }
         echo json_encode($response);
         exit;
-        
-        
     }
 }
