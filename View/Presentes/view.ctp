@@ -33,6 +33,26 @@
 		</dd>
 	</dl>
 </div>
+<div class="presentes view">
+<h2><?php  echo __('Presenteado por'); ?></h2>
+	<dl>
+		<dt><?php echo __('Nome'); ?></dt>
+		<dd>
+			<?php echo h($presente['Presente']['name']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Comentário'); ?></dt>
+		<dd>
+			<?php echo h($presente['Presente']['comment']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Email'); ?></dt>
+		<dd>
+			<?php echo h($presente['Presente']['email']); ?>
+			&nbsp;
+		</dd>
+	</dl>
+</div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>

@@ -9,6 +9,10 @@
 		echo $this->Form->input('image_url');
 		echo $this->Form->input('thumb_url');
 		echo $this->Form->input('price');
+		echo $this->Form->input('name');
+		echo $this->Form->input('comment');
+		echo $this->Form->input('email');
+		echo $this->Form->input('checked', array('label' => 'Confirmado'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

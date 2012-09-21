@@ -4,10 +4,9 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('title'); ?></th>
-			<th><?php echo $this->Paginator->sort('url'); ?></th>
-			<th><?php echo $this->Paginator->sort('image_url'); ?></th>
-			<th><?php echo $this->Paginator->sort('thumb_url'); ?></th>
-			<th><?php echo $this->Paginator->sort('price'); ?></th>
+			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('comment'); ?></th>
+			<th><?php echo $this->Paginator->sort('email'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
@@ -15,10 +14,9 @@
 	<tr>
 		<td><?php echo h($presente['Presente']['id']); ?>&nbsp;</td>
 		<td><?php echo h($presente['Presente']['title']); ?>&nbsp;</td>
-		<td><?php echo h($presente['Presente']['url']); ?>&nbsp;</td>
-		<td><?php echo h($presente['Presente']['image_url']); ?>&nbsp;</td>
-		<td><?php echo h($presente['Presente']['thumb_url']); ?>&nbsp;</td>
-		<td><?php echo h($presente['Presente']['price']); ?>&nbsp;</td>
+		<td><?php echo h($presente['Presente']['name']); ?>&nbsp;</td>
+		<td><?php echo h($presente['Presente']['comment']); ?>&nbsp;</td>
+		<td><?php echo h($presente['Presente']['email']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $presente['Presente']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $presente['Presente']['id'])); ?>

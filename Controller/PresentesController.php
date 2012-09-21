@@ -7,6 +7,15 @@ App::uses('AppController', 'Controller');
  */
 class PresentesController extends AppController {
 
+    public $components = array(
+        'Auth',
+        'Session'
+    );
+    
+    public function beforeFilter() {
+        $this->Auth->allow(array('gift', 'list_presentes'));
+        parent::beforeFilter();
+    }
 /**
  * index method
  *
